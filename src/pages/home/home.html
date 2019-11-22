@@ -1,14 +1,49 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Ionic Blank
+      IonNote!
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-card id="header">
+    <ion-row>
+    <ion-item class="tag">
+      <ion-label stacked color="dark">TAG:</ion-label>
+      <ion-input placeholder="{{ 'TAG_BAR' | translate }}" 
+                 [(ngModel)]="tag" 
+                 (keyup)="setTag(tagName.value)"
+                 (keypress)="setTag(tagName.value)"
+                 #tagName></ion-input>
+    </ion-item>
+    <ion-buttons end >
+        <button *ngIf="images" ion-button icon-only class="cameraIcon" (click)="takePhoto()">
+        <ion-icon name="camera" size="large"></ion-icon>
+        </button>
+      </ion-buttons>
+      </ion-row>
+  </ion-card>
+  <ion-card *ngIf="images" id="contentImg">
+    <page-images [image]="image" (imageEmitter)="newImage($event)"></page-images>
+  </ion-card>
+  <ion-card *ngIf="!images" id="contentTxt">
+    <page-texts [text]="text" (textEmitter)="newText($event)"></page-texts>
+  </ion-card>  
+
+  <ion-card id="buttons">
+    <ion-row>
+      <ion-col size="6">
+        <button ion-button full [ngClass]="images ? 'noClicked' : 'clicked'" (click)="changeView('text')">
+          {{ 'TEXT_BUTTON' | translate }}
+        </button>
+      </ion-col>
+      <ion-col size="6">
+        <button ion-button full [ngClass]="!images ? 'noClicked' : 'clicked'" (click)="changeView('image')">
+          {{ 'IMAGE_BUTTON' | translate }}
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
 </ion-content>

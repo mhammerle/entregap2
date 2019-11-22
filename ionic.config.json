@@ -1,5 +1,7 @@
 {
   "name": "IonNote",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

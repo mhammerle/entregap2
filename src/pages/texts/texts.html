@@ -1,0 +1,12 @@
+<!--
+  Generated template for the TextsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-item>
+    <ion-textarea rows="15" 
+                  placeholder="{{ 'TAG_TEXT' | translate }}"
+                  (keyup)="postText(newText.value)" [(ngModel)]="text" #newText
+    ></ion-textarea>
+</ion-item>
