@@ -37,7 +37,7 @@
     "cordova-plugin-globalization": "^1.11.0",
     "cordova-plugin-network-information": "git+https://github.com/apache/cordova-plugin-network-information.git",
     "cordova-plugin-telerik-imagepicker": "^2.3.3",
-    "firebase": "^3.9.0",
+    "firebase": "^9.15.0",
     "hammerjs": "^2.0.8",
     "ionic-angular": "3.9.5",
     "ionic-img-viewer": "^2.9.0",
